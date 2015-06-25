@@ -48,7 +48,7 @@ link_directories (
     ${LIBRARY_DIRS}
     )
 
-add_library (QEx SHARED ${SOURCES})
+add_library (QEx STATIC ${SOURCES})
 
 target_link_libraries (QEx
     ${LIBRARIES}
@@ -95,7 +95,7 @@ endif()
 
 set_target_properties (QEx
     PROPERTIES
-    COMPILE_FLAGS "${QEX_COMPILE_FLAGS}"
+    COMPILE_FLAGS "-D_USE_MATH_DEFINES ${QEX_COMPILE_FLAGS}"
     )
 
 #

@@ -40,6 +40,8 @@ void printUsage(const std::string &cmd) {
     strcpy(cmdCpy, cmd.data());
     std::string basename = ::basename(cmdCpy);
     delete[] cmdCpy;
+#else
+	std::string basename = cmd;
 #endif
     std::cout << "Usage: "
             << basename

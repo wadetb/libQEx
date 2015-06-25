@@ -43,5 +43,5 @@ target_link_libraries(demo_minimal_c ${DEMO_MINIMAL_C_LIBRARIES})
 set_target_properties(demo_minimal_c
     PROPERTIES
     INCLUDE_DIRECTORIES "${DEMO_MINIMAL_C_INCLUDE_DIRS}"
-    COMPILE_FLAGS "-Wall -Wextra -pedantic -std=c99"
+    COMPILE_FLAGS "-D_USE_MATH_DEFINES"
 )

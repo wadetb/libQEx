@@ -1212,15 +1212,15 @@ construct_local_edge_information_vertex(GridVertex& _gv, const std::vector<doubl
     const double ninetyJump = pos_angleSum / M_PI_2;
 #ifndef NDEBUG
     if (!_external_valences && !_gv.is_boundary &&
-            fabs(ninetyJump - round(ninetyJump)) >= 1e-6) {
+            fabs(ninetyJump - floor(ninetyJump + 0.5)) >= 1e-6) {
         std::cerr << "\x1b[41mAssertion fabs(periodJump - round(periodJump)) < 1e-6 failed." << std::endl
                 << "  This is more of a soft assertion since in the vicinity of degenerate" << std::endl
                 << "  or almost degenerate triangles the periodJump computed here can be" << std::endl
                 << "  arbitrarily far off. So before you start worrying, check if there are any" << std::endl
                 << "  bad parameter triangles around that vertex." << std::endl
                 << "  periodJump = " << ninetyJump << std::endl
-                << "  round(periodJump) = " << round(ninetyJump) << std::endl
-                << "  fabs(periodJump - round(periodJump)) = " << fabs(ninetyJump - round(ninetyJump)) << std::endl
+                << "  round(periodJump) = " << floor(ninetyJump + 0.5) << std::endl
+                << "  fabs(periodJump - round(periodJump)) = " << fabs(ninetyJump - floor(ninetyJump + 0.5)) << std::endl
                 << "  GV " << std::distance(gvertices_.begin(), std::find_if(gvertices_.begin(), gvertices_.end(), GVPointerEquality<TMeshT>(_gv)))
                 << "\x1b[0m" << std::endl;
         std::cerr << "Error log:" << std::endl << angleSumErrorLog.str();
